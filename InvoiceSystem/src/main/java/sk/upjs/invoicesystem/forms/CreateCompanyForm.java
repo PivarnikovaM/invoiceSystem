@@ -1,7 +1,6 @@
 package sk.upjs.invoicesystem.forms;
 
 import java.awt.Color;
-import org.bson.types.ObjectId;
 import sk.upjs.invoicesystem.CompaniesDao;
 import sk.upjs.invoicesystem.ObjectFactory;
 import sk.upjs.invoicesystem.Company;
@@ -22,7 +21,9 @@ public class CreateCompanyForm extends javax.swing.JDialog {
      */
     public CreateCompanyForm(javax.swing.JDialog parent, boolean modal, int selectedRow) {
         super(parent, modal);
+        
         initComponents();
+        setLocationRelativeTo(parent);
 
         selected = companies.getCompanies().get(selectedRow);
 
@@ -83,19 +84,26 @@ public class CreateCompanyForm extends javax.swing.JDialog {
         telephoneNumberField = new javax.swing.JTextField();
         createCompanyButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create company");
+        setMaximumSize(new java.awt.Dimension(611, 510));
+        setMinimumSize(new java.awt.Dimension(611, 510));
+        setPreferredSize(new java.awt.Dimension(611, 510));
+        getContentPane().setLayout(null);
 
         companyNameField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -112,185 +120,179 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 companyNameFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(companyNameField);
+        companyNameField.setBounds(20, 120, 280, 26);
 
         ZIPField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 ZIPFieldFocusLost(evt);
             }
         });
+        getContentPane().add(ZIPField);
+        ZIPField.setBounds(20, 220, 280, 26);
 
         streetField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 streetFieldFocusLost(evt);
             }
         });
+        getContentPane().add(streetField);
+        streetField.setBounds(20, 170, 280, 26);
 
         cityField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cityFieldFocusLost(evt);
             }
         });
+        getContentPane().add(cityField);
+        cityField.setBounds(310, 170, 280, 26);
 
         countryField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 countryFieldFocusLost(evt);
             }
         });
+        getContentPane().add(countryField);
+        countryField.setBounds(310, 220, 280, 26);
 
         DPHField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 DPHFieldFocusLost(evt);
             }
         });
+        getContentPane().add(DPHField);
+        DPHField.setBounds(20, 340, 280, 26);
 
         DICField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 DICFieldFocusLost(evt);
             }
         });
+        getContentPane().add(DICField);
+        DICField.setBounds(310, 280, 280, 26);
 
         ICOField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 ICOFieldFocusLost(evt);
             }
         });
+        getContentPane().add(ICOField);
+        ICOField.setBounds(20, 280, 280, 26);
 
         IBANField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 IBANFieldFocusLost(evt);
             }
         });
+        getContentPane().add(IBANField);
+        IBANField.setBounds(310, 390, 280, 26);
 
         emailField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 emailFieldFocusLost(evt);
             }
         });
+        getContentPane().add(emailField);
+        emailField.setBounds(20, 390, 280, 26);
 
         telephoneNumberField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 telephoneNumberFieldFocusLost(evt);
             }
         });
+        getContentPane().add(telephoneNumberField);
+        telephoneNumberField.setBounds(310, 340, 280, 26);
 
+        createCompanyButton.setFont(new java.awt.Font("Alegreya", 3, 13)); // NOI18N
+        createCompanyButton.setForeground(new java.awt.Color(0, 51, 153));
         createCompanyButton.setText("Create!");
         createCompanyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createCompanyButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(createCompanyButton);
+        createCompanyButton.setBounds(490, 450, 110, 29);
 
-        jLabel5.setText("Company name");
+        jLabel5.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel5.setText("IBAN");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(320, 370, 110, 26);
 
-        jLabel16.setText("Street");
+        jLabel2.setFont(new java.awt.Font("Nickainley", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Create company");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 20, 230, 60);
 
-        jLabel17.setText("City");
+        jLabel6.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel6.setText("Company name");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(30, 90, 110, 26);
 
-        jLabel18.setText("ZIP");
+        jLabel7.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel7.setText("Street");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(30, 150, 110, 26);
 
-        jLabel19.setText("Country");
+        jLabel8.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel8.setText("City");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(320, 150, 110, 26);
 
-        jLabel20.setText("ICO");
+        jLabel9.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel9.setText("ZIP");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(30, 200, 110, 26);
 
-        jLabel21.setText("DIC");
+        jLabel10.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel10.setText("Country");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(320, 200, 110, 26);
 
-        jLabel22.setText("ICDPH");
+        jLabel11.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel11.setText("ICO");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(30, 260, 110, 26);
 
-        jLabel23.setText("Telephone number");
+        jLabel12.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel12.setText("DIC");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(320, 260, 110, 26);
 
-        jLabel24.setText("Email");
+        jLabel13.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel13.setText("ICDPH");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(30, 320, 110, 26);
 
-        jLabel25.setText("IBAN");
+        jLabel14.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel14.setText("Tel. number");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(320, 320, 110, 26);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(createCompanyButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel5))
-                        .addGap(117, 117, 117)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(companyNameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                            .addComponent(DICField)
-                            .addComponent(DPHField)
-                            .addComponent(telephoneNumberField)
-                            .addComponent(emailField)
-                            .addComponent(IBANField)
-                            .addComponent(ZIPField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(countryField)
-                            .addComponent(ICOField)
-                            .addComponent(cityField)
-                            .addComponent(streetField))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(companyNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(streetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ZIPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(countryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ICOField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DICField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DPHField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telephoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(createCompanyButton)
-                .addContainerGap())
-        );
+        jLabel15.setFont(new java.awt.Font("Alegreya", 2, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel15.setText("E-mail");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(30, 370, 110, 26);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/default.jpg")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 80, 590, 360);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/Large_UL-877.jpg")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 610, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -343,7 +345,7 @@ public class CreateCompanyForm extends javax.swing.JDialog {
                 } else {
 
                     if (selected != null) {
-                        newOne.setIdCompany(selected.getIdCompany());
+                        newOne.setId(selected.getId());
 
                         companies.updateCompany(newOne);
 
@@ -458,17 +460,20 @@ public class CreateCompanyForm extends javax.swing.JDialog {
     private javax.swing.JTextField countryField;
     private javax.swing.JButton createCompanyButton;
     private javax.swing.JTextField emailField;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField streetField;
     private javax.swing.JTextField telephoneNumberField;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,9 @@
  */
 package sk.upjs.invoicesystem.forms;
 
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Toolkit;
 import sk.upjs.invoicesystem.InvoiceSmallTableModel;
 import sk.upjs.invoicesystem.InvoicesDao;
 
@@ -18,6 +21,10 @@ public class MenuForm extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public MenuForm() {
+
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
         initComponents();
 
         refreshMenuForm();
@@ -43,64 +50,89 @@ public class MenuForm extends javax.swing.JFrame {
         createInvoice = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         lastInvoicesTable = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        statisticsButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Invoice System");
+        setBounds(new java.awt.Rectangle(0, 0, 465, 564));
+        setMaximumSize(new java.awt.Dimension(465, 564));
+        setMinimumSize(new java.awt.Dimension(465, 564));
+        setPreferredSize(new java.awt.Dimension(465, 567));
+        setSize(new java.awt.Dimension(465, 564));
+        getContentPane().setLayout(null);
 
+        showCompanies.setBackground(new java.awt.Color(255, 255, 255));
+        showCompanies.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        showCompanies.setForeground(new java.awt.Color(0, 51, 153));
         showCompanies.setText("Show all companies");
         showCompanies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showCompaniesActionPerformed(evt);
             }
         });
+        getContentPane().add(showCompanies);
+        showCompanies.setBounds(20, 150, 200, 40);
 
+        showAllInvoices.setBackground(new java.awt.Color(255, 255, 255));
+        showAllInvoices.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        showAllInvoices.setForeground(new java.awt.Color(0, 51, 153));
         showAllInvoices.setText("Show all invoices");
         showAllInvoices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showAllInvoicesActionPerformed(evt);
             }
         });
+        getContentPane().add(showAllInvoices);
+        showAllInvoices.setBounds(20, 110, 200, 40);
 
+        createInvoice.setBackground(new java.awt.Color(255, 255, 255));
+        createInvoice.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        createInvoice.setForeground(new java.awt.Color(0, 51, 153));
         createInvoice.setText("Create invoice");
         createInvoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createInvoiceActionPerformed(evt);
             }
         });
+        getContentPane().add(createInvoice);
+        createInvoice.setBounds(230, 110, 210, 40);
 
         lastInvoicesTable.setModel(new sk.upjs.invoicesystem.InvoiceSmallTableModel());
+        lastInvoicesTable.setSelectionBackground(new java.awt.Color(0, 51, 153));
         jScrollPane2.setViewportView(lastInvoicesTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(showCompanies)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(showAllInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(createInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showCompanies)
-                    .addComponent(showAllInvoices))
-                .addGap(18, 18, 18)
-                .addComponent(createInvoice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
-        );
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(10, 200, 440, 330);
+
+        jLabel4.setFont(new java.awt.Font("Nickainley", 0, 60)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel4.setText("InvoiceSystem");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, -20, 310, 130);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/default.jpg")); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 470, 90);
+
+        statisticsButton.setBackground(new java.awt.Color(255, 255, 255));
+        statisticsButton.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        statisticsButton.setForeground(new java.awt.Color(0, 51, 153));
+        statisticsButton.setText("Show statistics");
+        statisticsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statisticsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(statisticsButton);
+        statisticsButton.setBounds(230, 149, 210, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/Large_UL-877.jpg")); // NOI18N
+        jLabel1.setBounds(new java.awt.Rectangle(0, 0, 466, 610));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 466, 610);
 
         pack();
         setLocationRelativeTo(null);
@@ -123,6 +155,12 @@ public class MenuForm extends javax.swing.JFrame {
         companiesForm.setVisible(true);
         refreshMenuForm();
     }//GEN-LAST:event_showCompaniesActionPerformed
+
+    private void statisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsButtonActionPerformed
+        ChartDialog chartDialog = new ChartDialog(this, rootPaneCheckingEnabled);
+        chartDialog.setVisible(true);
+
+    }//GEN-LAST:event_statisticsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +193,7 @@ public class MenuForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new MenuForm().setVisible(true);
             }
         });
@@ -162,9 +201,13 @@ public class MenuForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createInvoice;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable lastInvoicesTable;
     private javax.swing.JButton showAllInvoices;
     private javax.swing.JButton showCompanies;
+    private javax.swing.JButton statisticsButton;
     // End of variables declaration//GEN-END:variables
 }

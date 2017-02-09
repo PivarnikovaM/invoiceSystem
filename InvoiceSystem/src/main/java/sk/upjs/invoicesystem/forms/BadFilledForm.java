@@ -16,7 +16,9 @@ public class BadFilledForm extends javax.swing.JDialog {
      */
     public BadFilledForm(javax.swing.JDialog parent, boolean modal, String errorMessage) {
         super(parent, modal);
+        
         initComponents();
+        setLocationRelativeTo(parent);
         this.errorMessage.setText(errorMessage);
     }
 
@@ -31,38 +33,33 @@ public class BadFilledForm extends javax.swing.JDialog {
 
         errorMessage = new javax.swing.JLabel();
         OKButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(327, 95));
+        setMinimumSize(new java.awt.Dimension(327, 95));
+        setPreferredSize(new java.awt.Dimension(327, 95));
+        getContentPane().setLayout(null);
 
+        errorMessage.setFont(new java.awt.Font("Alegreya", 2, 14)); // NOI18N
+        errorMessage.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(errorMessage);
+        errorMessage.setBounds(6, 6, 304, 20);
+
+        OKButton.setFont(new java.awt.Font("Alegreya", 3, 14)); // NOI18N
+        OKButton.setForeground(new java.awt.Color(0, 51, 153));
         OKButton.setText("OK");
         OKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OKButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(OKButton);
+        OKButton.setBounds(235, 54, 75, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 229, Short.MAX_VALUE)
-                        .addComponent(OKButton)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(OKButton)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/Large_UL-877.jpg")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-12, -5, 340, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,5 +71,6 @@ public class BadFilledForm extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OKButton;
     private javax.swing.JLabel errorMessage;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

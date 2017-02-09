@@ -24,7 +24,9 @@ public class InvoicesForm extends javax.swing.JDialog {
      */
     public InvoicesForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
+        setLocationRelativeTo(parent);
         refreshInvoiceForm();
     }
 
@@ -47,62 +49,68 @@ public class InvoicesForm extends javax.swing.JDialog {
         updateInvoiceButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         invoiceFormTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Invoices");
+        setBounds(new java.awt.Rectangle(0, 0, 550, 610));
+        setMaximumSize(new java.awt.Dimension(550, 610));
+        setMinimumSize(new java.awt.Dimension(550, 610));
+        setPreferredSize(new java.awt.Dimension(550, 610));
+        getContentPane().setLayout(null);
 
+        deleteInvoiceButton.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        deleteInvoiceButton.setForeground(new java.awt.Color(0, 51, 153));
         deleteInvoiceButton.setText("Delete invoice");
         deleteInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteInvoiceButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(deleteInvoiceButton);
+        deleteInvoiceButton.setBounds(170, 90, 140, 40);
 
+        createInvoiceButton.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        createInvoiceButton.setForeground(new java.awt.Color(0, 51, 153));
         createInvoiceButton.setText("Create invoice");
         createInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createInvoiceButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(createInvoiceButton);
+        createInvoiceButton.setBounds(390, 90, 137, 40);
 
+        updateInvoiceButton.setFont(new java.awt.Font("Alegreya", 3, 18)); // NOI18N
+        updateInvoiceButton.setForeground(new java.awt.Color(0, 51, 153));
         updateInvoiceButton.setText("Update invoice");
         updateInvoiceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateInvoiceButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(updateInvoiceButton);
+        updateInvoiceButton.setBounds(20, 90, 137, 40);
 
         invoiceFormTable.setModel(new InvoiceTableModel());
         jScrollPane1.setViewportView(invoiceFormTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(deleteInvoiceButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateInvoiceButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(createInvoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteInvoiceButton)
-                    .addComponent(createInvoiceButton)
-                    .addComponent(updateInvoiceButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(17, 140, 510, 410);
+
+        jLabel1.setFont(new java.awt.Font("Nickainley", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Invoices");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(200, 10, 150, 60);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/Large_UL-877.jpg")); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(550, 610));
+        jLabel2.setMinimumSize(new java.awt.Dimension(550, 610));
+        jLabel2.setPreferredSize(new java.awt.Dimension(550, 610));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 550, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +180,8 @@ public class InvoicesForm extends javax.swing.JDialog {
     private javax.swing.JButton createInvoiceButton;
     private javax.swing.JButton deleteInvoiceButton;
     private javax.swing.JTable invoiceFormTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updateInvoiceButton;
     // End of variables declaration//GEN-END:variables

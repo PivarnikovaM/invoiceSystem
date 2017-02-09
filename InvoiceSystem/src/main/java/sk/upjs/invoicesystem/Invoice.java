@@ -6,24 +6,36 @@ import org.bson.types.ObjectId;
 
 public class Invoice {
 
-    public Invoice() {
-    }
-
+    private Long id;
     private Company supplier;
     private Company customer;
-    private ObjectId objectId;
     private Integer invoiceNumber;
     private Integer variableSymbol;
     private Integer constantSymbol;
     private Date exposureDate;
     private Date deliveryDate;
     private Date paymentDueDate;
-    private String currency = "";
-    private String paymentsForm = "";
-    private String note = "";
-    private String drewUpBy = "";
+    private String currency;
+    private String paymentsForm;
+    private String note;
+    private String drewUpBy;
     private List<Item> products = new ArrayList<Item>();
 
+    public Invoice() {
+        this.supplier = supplier;
+        this.customer = customer;
+        this.invoiceNumber = invoiceNumber;
+        this.variableSymbol = variableSymbol;
+        this.constantSymbol = constantSymbol;
+        this.exposureDate = exposureDate;
+        this.deliveryDate = deliveryDate;
+        this.paymentDueDate = paymentDueDate;
+        this.currency = currency;
+        this.paymentsForm = paymentsForm;
+        this.note = note;
+        this.drewUpBy = drewUpBy;
+    }
+    
     public void setProducts(List<Item> products) {
         this.products = products;
     }
@@ -137,32 +149,19 @@ public class Invoice {
     }
     
     
-    public ObjectId getInvoiceId() {
-        return objectId;
+    public Long getId() {
+        return id;
     }
 
-    public void setInvoiceId(ObjectId objectId) {
-        this.objectId = objectId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Invoice(Company supplier, Company customer, Integer invoiceNumber, Integer variableSymbol, Integer constantSymbol, Date exposureDate, Date deliveryDate, Date paymentDueDate, String currency, String paymentsForm, String note, String drewUpBy) {
-        this.supplier = supplier;
-        this.customer = customer;
-        this.invoiceNumber = invoiceNumber;
-        this.variableSymbol = variableSymbol;
-        this.constantSymbol = constantSymbol;
-        this.exposureDate = exposureDate;
-        this.deliveryDate = deliveryDate;
-        this.paymentDueDate = paymentDueDate;
-        this.currency = currency;
-        this.paymentsForm = paymentsForm;
-        this.note = note;
-        this.drewUpBy = drewUpBy;
-    }
+    
 
-    public void addProduct(String name, Integer count, Double pricePerPiece, String unitOfQuantity) {
+    /*public void addProduct(String name, Integer count, Double pricePerPiece, String unitOfQuantity) {
         Item product = new Item(name, count, pricePerPiece, unitOfQuantity);
         products.add(product);
 
-    }
+    }*/
 }

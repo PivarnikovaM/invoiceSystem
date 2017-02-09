@@ -13,6 +13,10 @@ public interface InvoicesDao {
     public void updateInvoice(Invoice invoice);
     
     public List<Invoice> get5LastInvoices();
+    
+    Long getInvoiceIdByNumber(Integer invoiceNumber);
       
-    public long size();
+    public int size();
+    
+    void addPrice(Long invoiceId, double price);
 }

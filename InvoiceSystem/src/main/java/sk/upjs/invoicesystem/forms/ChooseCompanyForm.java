@@ -21,8 +21,9 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
      */
     public ChooseCompanyForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
-
+        setLocationRelativeTo(parent);
     }
 
     public ChooseCompanyForm(javax.swing.JDialog parent, boolean modal, String company) {
@@ -52,58 +53,55 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
         searchField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         companiesTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Choose company");
+        setMaximumSize(new java.awt.Dimension(441, 429));
+        setMinimumSize(new java.awt.Dimension(441, 429));
+        setPreferredSize(new java.awt.Dimension(441, 429));
+        getContentPane().setLayout(null);
 
+        selectButton.setFont(new java.awt.Font("Alegreya", 3, 13)); // NOI18N
+        selectButton.setForeground(new java.awt.Color(0, 51, 153));
         selectButton.setText("Select");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(selectButton);
+        selectButton.setBounds(310, 370, 120, 29);
 
+        searchButton.setFont(new java.awt.Font("Alegreya", 3, 13)); // NOI18N
+        searchButton.setForeground(new java.awt.Color(0, 51, 153));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(searchButton);
+        searchButton.setBounds(300, 70, 130, 29);
+        getContentPane().add(searchField);
+        searchField.setBounds(10, 70, 290, 30);
 
         companiesTable.setModel(new CompaniesTableModel());
         jScrollPane2.setViewportView(companiesTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(searchField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(searchButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(selectButton)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectButton)
-                    .addComponent(searchButton)
-                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(10, 110, 410, 250);
+
+        jLabel2.setFont(new java.awt.Font("Nickainley", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Choose company");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 10, 230, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/martinapivarnikova/Downloads/Large_UL-877.jpg")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -20, 470, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,14 +109,13 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         int selectedRow = companiesTable.getSelectedRow();
         if (selectedRow != -1) {
-            String companyName = (String) companiesTable.getValueAt(selectedRow, 0);
-            Company company = ObjectFactory.INSTANCE.getCompanyDao().searchCompanyByCompanyName(companyName);
-            if (selectedCompany.equals("supplier")) {
+           Company company = (Company) ((CompaniesTableModel) companiesTable.getModel()).getObjectAt(selectedRow);
+           if (selectedCompany.equals("supplier")) {
                 createInvoiceForm.setSupplier(company);
-                createInvoiceForm.setButtonTextChooseSupplier(companyName);
+                createInvoiceForm.setButtonTextChooseSupplier(company.getCompanyName());
             } else {
                 createInvoiceForm.setCustomer(company);
-                createInvoiceForm.setButtonTextChooseCustomer(companyName);
+                createInvoiceForm.setButtonTextChooseCustomer(company.getCompanyName());
             }
 
             dispose();
@@ -168,6 +165,8 @@ public class ChooseCompanyForm extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable companiesTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;

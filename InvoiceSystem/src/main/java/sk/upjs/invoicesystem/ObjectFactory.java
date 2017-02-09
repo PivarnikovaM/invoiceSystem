@@ -1,41 +1,63 @@
 package sk.upjs.invoicesystem;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCursor;
+import com.mysql.cj.jdbc.MysqlDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+
 
 public enum ObjectFactory {
     INSTANCE;
-    private String databaseName = "invoices_db";
-    private CompaniesDao mongoCompanies;
-    private InvoicesDao mongoInvoices;
-    private ItemsDao mongoItems;
+    private JdbcTemplate jdbcTemplate;
+    
+    private CompaniesDao companiesDao; 
+    
+    private InvoicesDao invoicesDao;
+    
+    private ItemsDao itemsDao;
+    
+    private StatisticsDao statisticsDao;
 
-   
-    MongoClient mongoClient = new MongoClient("localhost", 27017);    //pripojenie na server	
-    private DB db = mongoClient.getDB(databaseName);                    //pripojenie na databazu
+
+    public JdbcTemplate getJdbcTemplate() {
+
+        if (jdbcTemplate == null) {
+            MysqlDataSource dataSource = new MysqlDataSource();
+            dataSource.setUrl("jdbc:mysql://localhost/invoiceSystem?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8");
+            dataSource.setUser("invoiceSystem");
+            dataSource.setPassword("invoice");
+            jdbcTemplate = new JdbcTemplate(dataSource);
+        }
+        return jdbcTemplate;
+
+    }
+ 
 
     public CompaniesDao getCompanyDao() {
-
-        if (mongoCompanies == null) {
-            mongoCompanies = new MongoCompanies(db.getCollection("companies"));         //vrati companies collection
+        if (this.companiesDao == null) {
+            this.companiesDao = new MysqlCompaniesDao();
         }
-        return mongoCompanies;
+        return companiesDao;
     }
     
     public InvoicesDao getInvoicesDao(){
-        if(mongoInvoices==null){
-            mongoInvoices=new MongoInvoices(db.getCollection("invoices"));
+        if (this.invoicesDao == null) {
+            this.invoicesDao = new MysqlInvoicesDao();
         }
-        return mongoInvoices;
+        return invoicesDao;
     }
     
     public ItemsDao getItemsDao(){
-        if(mongoItems==null){
-            mongoItems=new MongoItems(db.getCollection("items"));
+        if (this.itemsDao == null) {
+            this.itemsDao = new MysqlItemsDao();
         }
-        return mongoItems;
+        return itemsDao;
+    }
+    
+    public StatisticsDao getStatisticsDao() {
+        if (this.statisticsDao == null) {
+            this.statisticsDao = new MysqlStatisticsDao();
+        }
+        return statisticsDao;
     }
 
 }

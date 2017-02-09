@@ -36,6 +36,10 @@ public class CompaniesTableModel extends AbstractTableModel {
                 return "???";
         }
     }
+    
+    public Object getObjectAt(int rowIndex) {
+        return companies.searchCompaniesByName(searched).get(rowIndex);
+    }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {

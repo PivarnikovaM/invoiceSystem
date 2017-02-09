@@ -1,13 +1,22 @@
 package sk.upjs.invoicesystem;
 
-import org.bson.types.ObjectId;
 
 public class Company {
-
+    
+    private Long id;
+    private String companyName;
+    private String street;
+    private String city;
+    private Integer postalCode;
+    private String country;
+    private Long ICO;
+    private Long DIC;
+    private Long ICDPH;
+    private String telephoneNumber;
+    private String email;
+    private String IBAN;
+    
     public Company() {
-    }
-
-    public Company(String companyName, String street, String city, int postalCode, String country, Long ICO, Long DIC, Long ICDPH, String telephoneNumber, String email, String IBAN) {
         this.companyName = companyName;
         this.street = street;
         this.city = city;
@@ -21,25 +30,12 @@ public class Company {
         this.IBAN = IBAN;
     }
 
-    private ObjectId idCompany;
-    private String companyName = "";
-    private String street = "";
-    private String city = "";
-    private Integer postalCode;
-    private String country = "";
-    private Long ICO;
-    private Long DIC;
-    private Long ICDPH;
-    private String telephoneNumber = "";
-    private String email = "";
-    private String IBAN = "";
-
-    public ObjectId getIdCompany() {
-        return idCompany;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdCompany(ObjectId idCompany) {
-        this.idCompany = idCompany;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setCompanyName(String companyName) {
@@ -129,5 +125,12 @@ public class Company {
     public void setICDPH(Long ICDPH) {
         this.ICDPH = ICDPH;
     }
+
+    @Override
+    public String toString() {
+        return companyName;
+    }
+    
+    
 
 }

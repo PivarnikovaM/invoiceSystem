@@ -44,27 +44,4 @@ public class InvoicePdfCreator {
         }
     }
 
-//    public void fill() {
-//
-//        try (PDDocument pdf = PDDocument.load(new File("Faktura1.pdf"))) {
-//
-//            PDAcroForm form = pdf.getDocumentCatalog().getAcroForm();
-//            PDField field = form.getField("product1");
-//            if (field != null) {
-//                field.setValue("nasrac\nnasrac");
-//            } else {
-//                System.err.println("No field found with name:" + "a");
-//            }
-//            field = form.getField("product2");
-//            if (field != null) {
-//                field.setValue("nasrac\nnasrac");
-//            } else {
-//                System.err.println("No field found with name:" + "a");
-//            }
-//            pdf.save("vyplnena.pdf");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 }

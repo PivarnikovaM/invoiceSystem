@@ -4,30 +4,47 @@ import org.bson.types.ObjectId;
 
 public class Item {
 
-    public Item() {
-    }
-
-    public Item(String description, Integer amount, double pricePerPiece, String unitOfQuantity) {
-        this.description = description;
-        this.amount = amount;
-        this.pricePerPiece = pricePerPiece;
-        this.unitOfAmount = unitOfQuantity;
-    }
-
+    private Long id;
     private String description;
     private Integer amount;
     private Double pricePerPiece;
-    private ObjectId invoiceId;
+    private Long invoiceId;
     private String unitOfAmount;
 
-    public String getUnitOfAmount() {
+    public Item() {
+        
+        this.id = id;
+        this.description = description;
+        this.amount = amount;
+        this.pricePerPiece = pricePerPiece;
+        this.invoiceId = invoiceId;
+        this.unitOfAmount = unitOfAmount;
+    }
+
+
+    
+    public String getUnitOfAmount() {    
         return unitOfAmount;
     }
 
-    public void setUnitOfAmount(String unitOfQuantity) {
-        this.unitOfAmount = unitOfQuantity;
+    /*public Item(String description, Integer amount, double pricePerPiece, String unitOfQuantity) {
+    this.description = description;
+    this.amount = amount;
+    this.pricePerPiece = pricePerPiece;
+    this.unitOfAmount = unitOfQuantity;
+    }*/
+    public void setUnitOfAmount(String unitOfAmount) {
+        this.unitOfAmount = unitOfAmount;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+ 
     public String getDescription() {
         return description;
     }
@@ -52,11 +69,11 @@ public class Item {
         this.pricePerPiece = pricePerPiece;
     }
 
-    public ObjectId getInvoiceId() {
+    public Long getInvoiceId() {
         return invoiceId;
     }
 
-    public void setInvoiceId(ObjectId invoiceId) {
+    public void setInvoiceId(Long invoiceId) {
         this.invoiceId = invoiceId;
     }
 
